@@ -13,7 +13,6 @@ section {
     overflow: hidden;
     text-align: center;
     margin: 100px auto 0;
-    /* box-shadow: 3px 3px 6px 3px rgba(50,50,50,.2); */
 }
 
 img {
@@ -81,6 +80,10 @@ button {
 button:hover {
     box-shadow: 0 0 5px 3px rgba(131, 253, 157, 0.753);
 }
+button.play {
+    background-color: rgb(72, 165, 72);
+    animation: playButton 0.85s linear forwards;
+}
 /* custom classes */
 
 .flex-center {
@@ -104,6 +107,12 @@ button:hover {
     box-shadow: 0 0 7px 2px rgba(255, 255, 255, 0.527);   
 }
 
+
+@keyframes playButton {
+    0% {opacity: 0;}
+    99% {opacity: 0;}
+    100% {opacity: 1;}
+}
 
 @keyframes grow {
     0% {

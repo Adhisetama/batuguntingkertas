@@ -32,35 +32,54 @@ resButton.onclick = function() {
     hasil.innerHTML = ''
     pComp.classList.remove('compImg')
     pComp.setAttribute('src', 'img/computer.png')
+    resButton.classList.remove('play')
+
     player.forEach(function(element){
         element.classList.remove('picked')
         element.classList.add('hov')
     })
 }
 
+function compThinking() {
+    const imgName = ['batu', 'gunting', 'kertas'];
+    const time1 = new Date().getTime();
+    let i = 0;
+    let think = setInterval(function(){
+        if(new Date().getTime() - time1 > 700) clearInterval(think);
+        pComp.setAttribute('src', 'img/'+ imgName[i++] +'.jpg');
+        if(i == imgName.length) i = 0;
+    }, 70)
+}
+
 
 function finalRes(constName, result, drawTo, loseTo, winTo) {
-    if( hasil.classList.contains('result') ===  false ) {    
-        switch (result) {
-            case -1:
-                hasil.innerHTML = 'Kamu KALAH'
-                pComp.setAttribute('src', 'img/'+ loseTo +'.jpg')
-                break;
-            case 0:
-                hasil.innerHTML = 'SERI'
-                pComp.setAttribute('src', 'img/'+ drawTo +'.jpg')
-                break;
-            case 1:
-                hasil.innerHTML = 'Kamu MENANG'
-                pComp.setAttribute('src', 'img/'+ winTo +'.jpg')
-                break;
-        }
-        hasil.classList.add('result');
+    if( resButton.classList.contains('play') ===  false ) {
+        compThinking();
+
+        resButton.classList.add('play')
         constName.classList.add('picked');
-        pComp.classList.add('compImg')
         player.forEach(function(element) {
             element.classList.remove('hov')
         })
+        setTimeout(function(){
+    
+            switch (result) {
+                case -1:
+                    hasil.innerHTML = 'Kamu KALAH'
+                    pComp.setAttribute('src', 'img/'+ loseTo +'.jpg')
+                    break;
+                case 0:
+                    hasil.innerHTML = 'SERI'
+                    pComp.setAttribute('src', 'img/'+ drawTo +'.jpg')
+                    break;
+                case 1:
+                    hasil.innerHTML = 'Kamu MENANG'
+                    pComp.setAttribute('src', 'img/'+ winTo +'.jpg')
+                    break;
+            }
+            hasil.classList.add('result');
+            pComp.classList.add('compImg')
+        }, 800)
     }
 }
 
