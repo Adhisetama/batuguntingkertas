@@ -1,0 +1,137 @@
+body {
+    background-image: url("img/regal.png");
+}
+section {
+    text-align: center;
+}
+
+
+.container {
+    position: relative;
+    width: 400px;
+    border-radius: 30px;
+    overflow: hidden;
+    text-align: center;
+    margin: 100px auto 0;
+    /* box-shadow: 3px 3px 6px 3px rgba(50,50,50,.2); */
+}
+
+img {
+    background-color: white;
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    border: 3px solid white;
+    margin: 40px 10px;
+    filter: brightness(1);
+    transition: 0.4s;
+}
+
+.player .hov:hover {
+    transform: scale(1.15);
+    filter: brightness(1.2);
+    box-shadow: 0 0 7px 2px rgba(255, 255, 255, 0.527);
+}
+
+.comp {
+    margin-bottom: 10px;
+    background: rgb(138,214,232);
+    background: linear-gradient(191deg, rgba(138,214,232,1) 0%, rgba(204,239,245,1) 100%);}
+
+.player {
+    background: rgb(151,232,138);
+    background: linear-gradient(185deg, rgba(151,232,138,1) 0%, rgba(217,245,204,1) 100%);}
+
+.hasil {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    left: 110px;
+    margin-top: -33px;
+    border-radius: 10px;
+    border: 2px solid lightgrey;
+    width: 40%;
+    padding: 10px;
+    background-color: white;
+}
+.hasil p {
+    display: flex;
+    text-align: center;
+    align-items: baseline;
+    justify-content: center;
+    font: bold normal normal 20px helvetica;
+    margin: 0;
+    padding: 0;
+    color: rgb(110, 110, 110);
+}
+
+
+button {
+    margin-top: 20px;
+    height: 40px;
+    width: 100px;
+    border-radius: 20px;
+    border: 0;
+    background-color: rgb(72, 165, 72);
+    color: white;
+    cursor: pointer;
+}
+button:hover {
+    box-shadow: 0 0 5px 3px rgba(131, 253, 157, 0.753);
+}
+/* custom classes */
+
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* JAVASCRIPT PURPOSES */
+.picked {
+    transform: scale(1.15);
+    filter: brightness(1.2);
+    box-shadow: 0 0 7px 2px rgba(255, 255, 255, 0.527);
+}
+.result {
+    animation: grow 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+.compImg {
+    transform: scale(1.2);
+    filter: brightness(1.2);
+    box-shadow: 0 0 7px 2px rgba(255, 255, 255, 0.527);   
+}
+
+
+@keyframes grow {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .container {
+        width: 320px;
+        margin: 40px auto 0;
+    }
+    img {
+        margin: 10px;
+    }
+    .player img:last-child {
+        margin-top: -5px;
+    }
+    .container div:first-child {
+        padding: 20px 20px 30px;
+    }
+    .container div:last-child {
+        padding: 30px 20px 20px;
+    }
+    .hasil {
+        left: 82px;
+    }
+}
